@@ -1,0 +1,40 @@
+.create-post-header {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+form {
+  margin-top: 10px;
+}
+
+form label {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-column-gap: 20px;
+  align-items: center;
+}
+
+input[type=text], select, textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type=submit] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(52, 162, 236);
+  color: white;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: rgb(42, 152, 226);
+}

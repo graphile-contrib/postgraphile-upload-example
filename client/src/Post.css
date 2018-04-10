@@ -1,0 +1,18 @@
+div.post {
+  margin: 10px;
+  padding: 10px;
+  background: white;
+  border: 1px solid silver;
+  border-bottom: 2px solid silver;
+  border-radius: 3px;
+}
+
+.headline {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+img {
+  width: 100%;
+  padding-top: 10px;
+}
