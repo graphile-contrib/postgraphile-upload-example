@@ -7,7 +7,7 @@
             "request": "launch",
             "name": "Launch Program",
             "protocol": "inspector",
-            "program": "${workspaceRoot}/src/index.js",
+            "program": "${workspaceRoot}/server/src/index.js",
             "args": [],
             "runtimeExecutable": null,
             "runtimeArgs": [
