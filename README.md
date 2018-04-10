@@ -5,7 +5,7 @@ This app demonstrates how to add file upload support to PostGraphile using the [
 Server:
 - PostGraphile
 - [Upload Field plugin for PostGraphile](https://github.com/mattbretl/postgraphile-plugin-upload-field)
-- [Apollo Upload Server](https://github.com/jaydenseric/apollo-upload-server) (unrelated to Apollo Server; it's a lightweight middleware for Express/Koa)
+- [Apollo Upload Server](https://github.com/jaydenseric/apollo-upload-server) (no dependency on Apollo Server; it's a lightweight middleware for Express/Koa)
 
 Client:
 - create-react-app
