@@ -10,7 +10,7 @@ const app = express();
 const UPLOAD_DIR_NAME = 'uploads';
 
 // Serve uploads as static resources
-app.use(`/${UPLOAD_DIR_NAME}`, express.static(path.join(__dirname, `/${UPLOAD_DIR_NAME}`)));
+app.use(`/${UPLOAD_DIR_NAME}`, express.static(path.resolve(UPLOAD_DIR_NAME)));
 
 // Attach multipart request handling middleware
 app.use(apolloUploadExpress());
