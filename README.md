@@ -1,6 +1,6 @@
 # postgraphile-upload-example
 
-This app demonstrates how to add file upload support to PostGraphile using the [GraphQL Multipart Request Spec](https://github.com/jaydenseric/graphql-multipart-request-spec)).
+This app demonstrates how to add file upload support to PostGraphile using the [GraphQL Multipart Request Spec](https://github.com/jaydenseric/graphql-multipart-request-spec).
 
 Server:
 - PostGraphile
