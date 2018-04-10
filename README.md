@@ -22,6 +22,7 @@ In one terminal:
 cd server
 createdb upload_example
 psql -d upload_example -f schema.sql
+yarn
 npm start
 ```
 
@@ -29,6 +30,7 @@ In another terminal:
 
 ```bash
 cd client
+yarn
 npm start
 ```
 
