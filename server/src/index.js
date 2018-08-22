@@ -40,11 +40,25 @@ async function resolveUpload(upload) {
   const { filename, mimetype, encoding, createReadStream } = upload;
   const stream = createReadStream();
   // Save file to the local filesystem
-  const id = `${new Date().getTime()}_${filename}`;
-  const path = `${UPLOAD_DIR_NAME}/${id}`;
-  const writeStreamPath = `./${path}`;
-  const writeStream = fs.createWriteStream(writeStreamPath);
-  await stream.pipe(writeStream);
+  const { id, filepath } = await saveLocal({ stream, filename });
   // Return metadata to save it to Postgres
-  return path;
+  return filepath;
+}
+
+function saveLocal({ stream, filename }) {
+  const timestamp = new Date().toISOString().replace(/\D/g, "");
+  const id = `${timestamp}_${filename}`;
+  const filepath = path.join(UPLOAD_DIR_NAME, id);
+  const fsPath = path.join(process.cwd(), filepath);
+  return new Promise((resolve, reject) =>
+    stream
+      .on("error", error => {
+        if (stream.truncated)
+          // Delete the truncated file
+          fs.unlinkSync(fsPath);
+        reject(error);
+      })
+      .on("end", () => resolve({ id, filepath }))
+      .pipe(fs.createWriteStream(fsPath))
+  );
 }
