@@ -7,7 +7,7 @@ const { apolloUploadExpress } = require("apollo-upload-server");
 
 const app = express();
 
-const UPLOAD_DIR_NAME = 'uploads';
+const UPLOAD_DIR_NAME = "uploads";
 
 // Serve uploads as static resources
 app.use(`/${UPLOAD_DIR_NAME}`, express.static(path.resolve(UPLOAD_DIR_NAME)));
@@ -33,7 +33,7 @@ app.use(
 );
 
 app.listen(5000, () => {
-  console.log('Server listening on port 5000');
+  console.log("Server listening on port 5000");
 });
 
 async function resolveUpload(upload) {

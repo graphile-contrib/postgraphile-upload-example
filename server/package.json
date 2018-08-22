@@ -4,6 +4,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "lint": "eslint src/**/*.js",
     "start": "node src/index.js"
   },
   "author": "Matt Bretl",
@@ -13,5 +14,11 @@
     "express": "^4.16.3",
     "postgraphile": "^4.0.0-rc.3",
     "postgraphile-plugin-upload-field": "^1.0.0-alpha.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.4.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "prettier": "^1.14.2"
   }
 }
