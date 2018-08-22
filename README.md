@@ -50,7 +50,8 @@ By default, the example app only stores the local file path to Postgres. To pres
 
 ```js
 async function resolveUpload(upload) {
-  const { stream, filename, mimetype, encoding } = upload;
+  const { filename, mimetype, encoding, createReadStream } = upload;
+  const stream = createReadStream();
   // Save file to the local filesystem
   const { id, path } = await saveLocal({ stream, filename });
   // Return metadata to save it to Postgres

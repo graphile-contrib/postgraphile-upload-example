@@ -9,9 +9,9 @@
   "author": "Matt Bretl",
   "license": "MIT",
   "dependencies": {
-    "apollo-upload-server": "^5.0.0",
+    "apollo-upload-server": "^7.0.0",
     "express": "^4.16.3",
-    "postgraphile": "^4.0.0-beta.8",
+    "postgraphile": "^4.0.0-rc.3",
     "postgraphile-plugin-upload-field": "^1.0.0-alpha.4"
   }
 }
