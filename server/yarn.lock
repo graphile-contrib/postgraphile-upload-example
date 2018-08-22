@@ -1164,9 +1164,9 @@ postgraphile-core@4.0.0-rc.5:
     graphile-build "4.0.0-rc.5"
     graphile-build-pg "4.0.0-rc.5"
 
-postgraphile-plugin-upload-field@^1.0.0-alpha.4:
-  version "1.0.0-alpha.4"
-  resolved "https://registry.yarnpkg.com/postgraphile-plugin-upload-field/-/postgraphile-plugin-upload-field-1.0.0-alpha.4.tgz#b80477f93ea94677250e0d945429e7d13ad27b04"
+postgraphile-plugin-upload-field@^1.0.0-alpha.7:
+  version "1.0.0-alpha.7"
+  resolved "https://registry.yarnpkg.com/postgraphile-plugin-upload-field/-/postgraphile-plugin-upload-field-1.0.0-alpha.7.tgz#b4d45c96ee83e43a763e627f63e2fe12c4d3c8c5"
 
 postgraphile@^4.0.0-rc.3:
   version "4.0.0-rc.3"

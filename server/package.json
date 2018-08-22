@@ -13,7 +13,7 @@
     "apollo-upload-server": "^7.0.0",
     "express": "^4.16.3",
     "postgraphile": "^4.0.0-rc.3",
-    "postgraphile-plugin-upload-field": "^1.0.0-alpha.4"
+    "postgraphile-plugin-upload-field": "^1.0.0-alpha.7"
   },
   "devDependencies": {
     "eslint": "^5.4.0",
