@@ -5,7 +5,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "Launch Server",
             "protocol": "inspector",
             "cwd": "${workspaceRoot}/server",
             "program": "${workspaceRoot}/server/src/index.js",

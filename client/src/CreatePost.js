@@ -17,26 +17,30 @@ const CREATE_POST = gql`
 
 const GET_POSTS = gql`
   query allPosts {
-  allPosts(first: 50) {
-    nodes {
-      id
-      headline
-      headerImageFile
+    allPosts(first: 50) {
+      nodes {
+        id
+        headline
+        headerImageFile
+      }
     }
   }
-}
 `;
 
 const CreatePost = () => {
   return (
     <Mutation
       mutation={CREATE_POST}
+      onCompleted={data => {
+        document.getElementsByTagName("form")[0].reset();
+      }}
       refetchQueries={[{ query: GET_POSTS }]}
     >
       {(createPost, { data, loading, error }) => (
         <div>
           <span className="create-post-header">Create Post</span>
           <form
+            className={loading ? "locked" : undefined}
             onSubmit={event => {
               event.preventDefault();
               const fd = new FormData(event.target);
@@ -49,28 +53,58 @@ const CreatePost = () => {
                     post: {
                       headline,
                       body,
-                      headerImageFile,
+                      headerImageFile
                     }
                   }
                 }
               });
             }}
           >
-            <label>
-              Headline
-              <input type="text" name="headline" required />
+            <label htmlFor="headline"> Headline</label>
+            <input type="text" id="headline" name="headline" required />
+
+            <label htmlFor="body">Body</label>
+            <textarea id="body" name="body" required />
+
+            <label>Header Image</label>
+
+            <label
+              className="input"
+              htmlFor="headerImageFile"
+              id="headerImageFile_label"
+            >
+              <button type="button" className="select-file">
+                <input
+                  disabled
+                  id="headerImageFile_filename"
+                  defaultValue="Select File"
+                />
+              </button>
+              <input
+                type="file"
+                id="headerImageFile"
+                name="headerImageFile"
+                accept="image/*"
+                required
+                onChange={event => {
+                  const filename =
+                    event.target.files.length > 0
+                      ? event.target.files[0].name
+                      : "";
+                  document.getElementById(
+                    `${event.target.id}_filename`
+                  ).value = filename;
+                }}
+              />
             </label>
-            <label>
-              Body
-              <textarea name="body" required />
-            </label>
-            <label>
-              Header Image
-              <input type="file" name="headerImageFile" accept='image/*' required />
-            </label>
-            <input type="submit" value="Submit" />
+
+            <button
+              type="submit"
+              className="spinner"
+            >
+              Submit
+            </button>
           </form>
-          {loading && <p>Loading...</p>}
           {error && <p>Error :( Please try again</p>}
         </div>
       )}
