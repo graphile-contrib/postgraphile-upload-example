@@ -3,7 +3,7 @@ const path = require("path");
 const express = require("express");
 const { postgraphile } = require("postgraphile");
 const PostGraphileUploadFieldPlugin = require("postgraphile-plugin-upload-field");
-const { apolloUploadExpress } = require("apollo-upload-server");
+const { graphqlUploadExpress } = require("graphql-upload");
 
 const app = express();
 
@@ -13,7 +13,7 @@ const UPLOAD_DIR_NAME = "uploads";
 app.use(`/${UPLOAD_DIR_NAME}`, express.static(path.resolve(UPLOAD_DIR_NAME)));
 
 // Attach multipart request handling middleware
-app.use(apolloUploadExpress());
+app.use(graphqlUploadExpress());
 
 app.use(
   postgraphile("postgres://localhost:5432/upload_example", "public", {

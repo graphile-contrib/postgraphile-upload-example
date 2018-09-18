@@ -4,13 +4,13 @@ This app demonstrates how to add file upload support to PostGraphile using the [
 
 Server:
 - PostGraphile
-- [Upload Field plugin for PostGraphile](https://github.com/mattbretl/postgraphile-plugin-upload-field)
-- [Apollo Upload Server](https://github.com/jaydenseric/apollo-upload-server) (no dependency on Apollo Server; it's a lightweight middleware for Express/Koa)
+- [postgraphile-plugin-upload-field](https://github.com/mattbretl/postgraphile-plugin-upload-field)
+- [graphql-upload](https://github.com/jaydenseric/graphql-upload)
 
 Client:
 - create-react-app
-- Apollo Client
-- [Apollo Upload Client](https://github.com/jaydenseric/apollo-upload-client)
+- [apollo-client](https://github.com/apollographql/apollo-client)
+- [apollo-upload-client](https://github.com/jaydenseric/apollo-upload-client)
 
 ## Quick Start
 
@@ -38,11 +38,11 @@ The app should now be fully functional at localhost:3000. Uploaded files will be
 
 ## How does it work?
 
-The [server](https://github.com/mattbretl/postgraphile-upload-example/blob/master/server/src/index.js) code should be relatively straightforward if you're familiar with PostGraphile. [Apollo Upload Server](https://github.com/jaydenseric/apollo-upload-server) middleware handles the multipart requests using [busboy](https://github.com/mscdex/busboy). The [Upload Field plugin](https://github.com/mattbretl/postgraphile-plugin-upload-field) for PostGraphile is minimally documented, but briefly, `match` is a function used to specify the file upload metadata columns and `resolve` is a function that handles the actual file upload stream.
+The [server](https://github.com/mattbretl/postgraphile-upload-example/blob/master/server/src/index.js) code should be relatively straightforward if you're familiar with PostGraphile. The [graphql-upload](https://github.com/jaydenseric/graphql-upload) middleware handles the multipart requests using [busboy](https://github.com/mscdex/busboy). The [postgraphile-plugin-upload-field](https://github.com/mattbretl/postgraphile-plugin-upload-field) plugin for PostGraphile is minimally documented, but briefly, `match` is a function used to specify the file upload metadata columns and `resolve` is a function that handles the actual file upload stream.
 
 The client is full of React/Apollo boilerplate. The unique parts are:
 - [These lines in clients/src/index.js](https://github.com/mattbretl/postgraphile-upload-example/blob/master/client/src/index.js#L26-28) where createUploadLink replaces the usual createHttpLink in the ApolloClient constructor; and
-- [All of client/src/CreatePost.js](https://github.com/mattbretl/postgraphile-upload-example/blob/master/client/src/CreatePost.js), which is the actual upload form. It uses the new `Query` and `Mutation` components that were [added in React Apollo 2.1](https://dev-blog.apollodata.com/introducing-react-apollo-2-1-c837cc23d926).
+- [All of client/src/CreatePost.js](https://github.com/mattbretl/postgraphile-upload-example/blob/master/client/src/CreatePost.js), which is the actual upload form. It uses the `Query` and `Mutation` components that were [added in React Apollo 2.1](https://dev-blog.apollodata.com/introducing-react-apollo-2-1-c837cc23d926).
 
 ## Preserving metadata
 
