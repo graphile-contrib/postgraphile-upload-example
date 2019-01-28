@@ -23,24 +23,24 @@ app.use(
     graphileBuildOptions: {
       uploadFieldDefinitions: [
         {
-          match: ({ schema, table, column, tags }) =>
-            column === "header_image_file",
-          resolve: resolveUpload
-        }
-      ]
-    }
+          match: ({ column }) => column === "header_image_file",
+          resolve: resolveUpload,
+        },
+      ],
+    },
   })
 );
 
 app.listen(5000, () => {
+  // eslint-disable-next-line
   console.log("Server listening on port 5000");
 });
 
 async function resolveUpload(upload) {
-  const { filename, mimetype, encoding, createReadStream } = upload;
+  const { filename, createReadStream } = upload;
   const stream = createReadStream();
   // Save file to the local filesystem
-  const { id, filepath } = await saveLocal({ stream, filename });
+  const { filepath } = await saveLocal({ stream, filename });
   // Return metadata to save it to Postgres
   return filepath;
 }
