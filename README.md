@@ -23,7 +23,7 @@ cd server
 createdb upload_example
 psql -d upload_example -f schema.sql
 yarn
-npm start
+yarn start
 ```
 
 In another terminal:
@@ -31,7 +31,7 @@ In another terminal:
 ```bash
 cd client
 yarn
-npm start
+yarn start
 ```
 
 The app should now be fully functional at localhost:3000. Uploaded files will be stored locally in `/server/uploads`.
