@@ -11,9 +11,9 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.4",
-    "graphql-upload": "^8.0.4",
+    "graphql-upload": "^10.0.0",
     "postgraphile": "^4.0.0",
-    "postgraphile-plugin-upload-field": "^1.0.0-alpha.8"
+    "postgraphile-plugin-upload-field": "^1.0.0-alpha.10"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
