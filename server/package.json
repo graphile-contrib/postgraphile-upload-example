@@ -10,7 +10,7 @@
   "author": "Matt Bretl",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "graphql-upload": "^10.0.0",
     "postgraphile": "^4.0.0",
     "postgraphile-plugin-upload-field": "^1.0.0-alpha.10"
